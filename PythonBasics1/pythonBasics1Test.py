@@ -7,7 +7,6 @@ import pythonBasics1
 # what each function returns vs. what it's supposed to return.
 
 def test(got, expected):
-
     if got == expected:
         prefix = ' OK '
     else:
