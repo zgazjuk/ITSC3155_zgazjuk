@@ -8,9 +8,11 @@
 # Define a function odd_range(num1, num2) that takes a starting number (num1) and an ending number (num2)
 # and returns all odd numbers as an array between num1 (inclusive) and num2 (exclusive)
 def odd_range(num1, num2):
-  # YOUR CODE HERE
-
-  return
+  arr = []
+  for i in range(num1, num2):
+    if i % 2 == 1:
+      arr.append(i)
+  return arr
 
 # Part B. has_lower_case
 # Define a function has_lower_case(s) that takes a string s
@@ -18,9 +20,11 @@ def odd_range(num1, num2):
 # The function should return True indicating that string s has a lower case char
 # otherwise return False
 def has_lower_case(s):
-  # YOUR CODE HERE
-  
-  return
+  for i in s:
+    if ord(i) >= ord('a') and ord(i) <= ord('z'):
+      return True
+
+  return False
 
 # Part C. fizz_buzz
 # Define a function fizz_buzz(num) that takes an integer num
@@ -33,6 +37,14 @@ def has_lower_case(s):
 # if num is does not meet any of the above criteria or is less than
 # or equal to 0 return the num as a string
 def fizz_buzz(num):
-  # YOUR CODE HERE
-  
-  return
+  if num > 0:
+    if num % 3 == 0 and num % 5 == 0:
+      return "FizzBuzz"
+    elif num % 3 == 0:
+      return "Fizz"
+    elif num % 5 == 0:
+      return "Buzz"
+    else:
+      return str(num)
+  else:
+    return str(num)
