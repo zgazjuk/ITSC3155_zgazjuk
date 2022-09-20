@@ -11,9 +11,11 @@
 # to n (including n).
 
 def count_threes(n):
-  # YOUR CODE HERE
-
-  return
+  count = 0
+  for i in range(0, n + 1):
+    if i % 3 == 0:
+      count = count + 1
+  return count
 
 
 # Part B. longest_consecutive_repeating_char
