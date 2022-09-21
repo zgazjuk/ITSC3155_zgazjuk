@@ -44,6 +44,25 @@ def longest_consecutive_repeating_char(s):
 # forwards. Treat capital letters the same as lowercase ones
 # and ignore spaces (i.e. case insensitive).
 def is_palindrome(s):
-  # YOUR CODE HERE
+  list1 = []
+  list2 = []
+  for i in range(0, (len(s) + 2) // 2):
+    if s[i] == " ":
+      continue
+    else:
+      list1.append(s[i].lower())
+  for i in range((len(s))// 2,  len(s)):
+    if s[i] == " ":
+      continue
+    else:
+      list2.append(s[i].lower())
+  print(list1)
+  print(list2[::-1])
+  if list1 == list2[::-1]:
+    return True
+  else:
+    return False
+
+
 
   return

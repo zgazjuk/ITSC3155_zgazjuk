@@ -13,8 +13,8 @@ def test(got, expected):
 def main():
     # set which functions to test
     check_count_threes = False
-    check_longest_consecutive_repeating_char = True
-    check_is_palindrome = False
+    check_longest_consecutive_repeating_char = False
+    check_is_palindrome = True
 
     if check_count_threes:
         print('Testing count_threes:')
@@ -42,7 +42,7 @@ def main():
         test(pythonBasics2.is_palindrome("civic"), True)
         test(pythonBasics2.is_palindrome("Civic"), True)
         test(pythonBasics2.is_palindrome("Racecar"), True)
-        test(pythonBasics2.is_palindrome("Dont nod"), True)
+        test(pythonBasics2.is_palindrome("Do nt nod"), True)
         test(pythonBasics2.is_palindrome("was it a cat I saw"), True)
         test(pythonBasics2.is_palindrome("It was not a cat"), False)
 
