@@ -25,14 +25,14 @@ with app.app_context():
 @app.route('/')
 @app.route('/index')
 def index():
-    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu')
+    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu').one()
     return render_template('index.html', user=a_user)
 
 
 @app.route('/notes')
 def get_notes():
     # retrieving user from database
-    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu')
+    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu').one()
     # retrieving note from database
     my_notes = db.session.query(Note).all()
     return render_template('notes.html', notes=my_notes, user=a_user)
@@ -41,9 +41,9 @@ def get_notes():
 @app.route('/notes/<note_id>')
 def get_note(note_id):
     # retrieving user from database
-    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu')
+    a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu').one()
     # retrieving note from database
-    my_note = db.session.query(Note).filter_by(note_id)
+    my_note = db.session.query(Note).filter_by(id=note_id).one()
 
     return render_template('note.html', note=my_note, user=a_user)
 
@@ -67,12 +67,12 @@ def new_note():
         new_record = Note(title, text, today)
         db.session.add(new_record)
         db.session.commit()
-        
+
         # ready to render response - redirect to notes listing
         return redirect(url_for('get_notes'))
 
     else:
-        a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu')
+        a_user = db.session.query(User).filter_by(email='zgazjuk@uncc.edu').one()
         return render_template('new.html', user=a_user)
 
 
